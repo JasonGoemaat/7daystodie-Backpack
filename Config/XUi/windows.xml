@@ -15,8 +15,8 @@
     <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/sprite[@name='backgroundMain']/@height">403</set>
 	
 	<!-- adjust windowlooting to match the size of the new player dropped backpack container -->
-    <set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@rows">12</set>
-    <set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@cols">12</set>
+    <set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@rows">10</set>
+    <set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@cols">9</set>
 
 	<remove xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/backpack_item_stack"></remove>
 	

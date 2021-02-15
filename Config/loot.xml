@@ -1,6 +1,6 @@
 <configs>
     <!-- Make player dropped bags bigger to accomodate new size-->
-	<set xpath="/lootcontainers/lootcontainer[@id='2']/@size">11,11</set>
+	<set xpath="/lootcontainers/lootcontainer[@id='2']/@size">10,9</set>
 	
 	<!-- vehicle storage max is 90 slots in vanilla -->
 	<!-- vehicleBicycle storage -->
