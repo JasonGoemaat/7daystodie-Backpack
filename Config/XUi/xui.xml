@@ -1,0 +1,5 @@
+<configs>
+  <!-- hopefully this fixes the bug with 11th item disappearing and 12-15 not saving -->
+  <!-- NOT - Darkness falls appears to offer custom dlls, and uses Harmony maybe to modify dlls to enable larger size I think -->
+  <!-- <set xpath="/xui/ruleset/window_group[@name='toolbelt']/window[@name='windowToolbelt']/@name">myToolbelt</set> -->
+</configs>

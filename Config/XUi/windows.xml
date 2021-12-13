@@ -1,18 +1,51 @@
 <configs>
+    <!--
+      Make target bar visible outside godmode
+    -->
+    <set xpath="/window/windows[@name='windowTargetBar']/@visibility">always</set>
+    
+    <!--
+      Toolbelt
+    -->
+    <set xpath="/windows/window[@name='windowToolbelt']/@height">51</set> <!-- original 78 for 72 item, ours is 45, so 51 -->
+    <set xpath="/windows/window[@name='windowToolbelt']/@width">483</set> <!-- original 753 for 72 item, ours is 45 so 483 for 10 items -->
+    <set xpath="/windows/window[@name='windowToolbelt']/@pos">-388, 60</set> <!-- original -388, 92, giving 20px below (72 + 20 = 92), so we give 5 giving 50 -->
+    <set xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='Toolbelt']/grid/@cell_width">48</set> <!-- original 75 for 72 item, ours is 45 so 48 -->
+    <set xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='Toolbelt']/grid/@cell_height">48</set> <!-- original 75 for 72 item, ours is 45 so 48 -->
+    <set xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='HUDStatBar'][@pos='0,-77']/@pos">0,-50</set> <!-- original -77 when window is 78 height -->
+    <set xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='HUDStatBar'][@pos='376,-77']/@pos">376,-50</set> <!-- original -77 when window is 78 height  -->
+    <!-- this doesn't work...  anything placed in the 11th slot disappears
+         anything in the 12th to 20th slots works, but disappears if you exit and come back to the game
+         
+         <set xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='Toolbelt']/grid/@cols">20</set>
+    -->
+
+    <remove xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='Toolbelt']/grid/item_stack"></remove>
+	
+    <append xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='Toolbelt']/grid">
+         <kh60_backpack_item_stack name="0"/>
+    </append>
+  
+  <!--
+    Backpack
+  -->
     <!-- update the overall backpack size -->
-    <set xpath="/windows/window[@name='windowBackpack']/@width">604</set>
-    <set xpath="/windows/window[@name='windowBackpack']/@height">373</set>
+    <set xpath="/windows/window[@name='windowBackpack']/@width">804</set> <!-- original 606x349, 606 is 8.4 72px, 9.04 67px - 9  -->
+    <set xpath="/windows/window[@name='windowBackpack']/@height">418</set>
     
     <!-- increase the panel size -->
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/@height">330</set>
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/@height">416</set> <!-- original 303 is 60 per row + 3  -->
     
     <!-- adjust the rows, heights, and their cell equivalent -->
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@rows">10</set>
+    <!-- original 5 rows, 9 columns
+         window size 606 is 9 * 67 + 3 by 349 is 335 + 14
+    -->
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@rows">8</set>
     <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@cols">15</set>
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@cell_height">40</set>
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@cell_width">40</set>
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/sprite[@name='backgroundMain']/@width">601</set>
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/sprite[@name='backgroundMain']/@height">403</set>
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@cell_height">53</set> <!-- original 67x67, style is 72x72 -->
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@cell_width">53</set>
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/sprite[@name='backgroundMain']/@width">801</set> <!-- 606 x 349 original -->
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/sprite[@name='backgroundMain']/@height">416</set>
 	
 	<!-- adjust windowlooting to match the size of the new player dropped backpack container -->
     <set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@rows">10</set>

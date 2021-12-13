@@ -1,4 +1,6 @@
 <configs>
+
+
   <!-- Want to remove this property from all <items><item>:
 	<property name="CreativeMode" value="Dev"/>
 
@@ -34,12 +36,12 @@ giveself meleeToolSalvageWrenchAdmin 6 1 true true
   giveself meleeToolPaintToolAdmin 6 1 true true
 
 -->
-  <remove xpath="/items/item/property[@name='CreativeMode']" />
+  <!-- <remove xpath="/items/item/property[@name='CreativeMode']" /> -->
 
 
   <!-- Now make military vest make you SUPER quiet -->
   <!-- testing... -->
-  <set xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/passive_effect[@name='ModSlots']/@value">4,4,4,4,4,4</set>
+  <!-- <set xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/passive_effect[@name='ModSlots']/@value">4,4,4,4,4,4</set>
   <set xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/passive_effect[@name='PhysicalDamageResist'][@tier='1,6']/@value">90,100</set>
   <set xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/passive_effect[@name='ElementalDamageResist'][@tier='1,6']/@value">90,100</set>
   <set xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/passive_effect[@name='BuffResistance']/@value">1,1</set>
@@ -48,16 +50,17 @@ giveself meleeToolSalvageWrenchAdmin 6 1 true true
   <set xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/passive_effect[@name='Mobility']/@value">0.1</set>
   <set xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/passive_effect[@name='StaminaChangeOT'][@tags='walking']/@value">0.1</set>
   <set xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/passive_effect[@name='StaminaChangeOT'][@tags='running']/@value">0.1</set>
-  <set xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/display_value[@name='dStaminaChangeOT']/@value">0.1</set>
+  <set xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/display_value[@name='dStaminaChangeOT']/@value">0.1</set> -->
+
 
   <!-- add new effect -->
-  <insertAfter xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/passive_effect[@name='NoiseMultiplier']">
+  <!-- <insertAfter xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/passive_effect[@name='NoiseMultiplier']">
     <passive_effect name="HypothermalResist" operation="base_add" value="95,100" />
     <passive_effect name="HyperthermalResist" operation="base_add" value="95,100" />
-  </insertAfter>
+  </insertAfter> -->
 
   <!-- these work great -->
-  <set xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/passive_effect[@name='NoiseMultiplier'][@value='.1']/@value">-1.5</set>
+  <!-- <set xpath="/items/item[@name='armorMilitaryVest']/effect_group[@name='military armor']/passive_effect[@name='NoiseMultiplier'][@value='.1']/@value">-1.5</set> -->
 
 
   <!--
@@ -99,113 +102,11 @@ Man, would be cool...
           trigger="onSelfSecondaryActionEnd"
 -->
 
-  <append xpath="/items">
-    <item name="gunDeath">
-      <property name="Tags" value="weapon,ranged,holdBreathAiming,reloadPenalty,gun,shortRange,barrelAttachments,sideAttachments,smallTopAttachments,magazine,drumMagazine,firingMode,bottomAttachments,attAgility,perkGunslinger,9mmGun,canHaveCosmetic,tool" />
-      <property name="DisplayType" value="rangedGun" />
-      <property name="CustomIcon" value="gunHandgunT3SMG5" />
-      <property name="CustomIconTint" value="0,210,210" />
-      <!-- <property name="ItemTypeIcon" value="computer" /> -->
-      <property name="HoldType" value="6" />
-      <property name="Meshfile" value="#Other/Items?Weapons/Ranged/MP5/MP5Prefab.prefab" />
-      <property name="Material" value="MHandGunParts" />
-      <property name="Weight" value="6" />
-      <property name="RepairTools" value="resourceRockSmall"/>
-      <property name="DegradationBreaksAfter" value="false" />
-      <property name="SoundJammed" value="weapon_jam" />
-      <property name="Attachments" value="meleeToolFlashlight02" />
-      <Property name="TintColor" value="ff00ff" />
-      <property name="CrosshairOnAim" value="true" /> <!-- aimTest -->
-      <property name="CrosshairUpAfterShot" value="true" /> <!-- aimTest -->
-      <property name="Sound_Sight_In" value="smg_sight_in" />
-      <property name="Sound_Sight_Out" value="smg_sight_out" />
-      <property name="Group" value="Ammo/Weapons" />
-      <property name="RepairExpMultiplier" value="10.8" />
-      <property name="EconomicValue" value="1500" />
-      <property name="ShowQuality" value="true" />
-
-      <property class="Action0">
-        <property name="Class" value="Ranged" />
-        <property name="Delay" value=".150" /> <!-- obsolete if rounds per minute exists -->
-        <property name="Magazine_items" value="ammo9mmBulletBall,ammo9mmBulletHP,ammo9mmBulletAP" />
-        <property name="Reload_time" value="4.1" />
-        <property name="Sound_start" value="mp5_s_fire" />
-        <property name="Sound_end" value="silencefiller" />
-        <property name="Sound_loop" value="mp5_s_fire" />
-        <property name="Sound_empty" value="dryfire" />
-        <property name="Sound_reload" value="mp5_reload" />
-        <property name="Particles_muzzle_fire" value="" />
-        <property name="Particles_muzzle_fire_fpv" value="" />
-        
-        <!-- <property name="DamageBonus.head" value="4"/>
-		<property name="DamageBonus.wood" value="5"/>
-		<property name="DamageBonus.earth" value=".2"/> -->
-        <property name="ScopeOffset" value="-.000525,.1449,-.2" />
-        <property name="SideOffset" value="0,0,0" />
-        <property name="BarrelOffset" value="-.062,.062,.16" />
-        <property name="Single_magazine_usage" value="true" />
-        <property name="Infinite_ammo" value="true" />
-
-        <property name="ToolCategory.Butcher" value="0" param1="100"/><!-- damage vs entity corpses -->
-        <property name="ToolCategory.harvestingTools" value="1" param1="1"/>
-
-      </property>
-      <property class="Action1">
-        <property name="Class" value="Zoom" />
-        <property name="CrosshairOnAim" value="true" />
-        <property name="Zoom_overlay" value="#Other/Items?Weapons/HUD/sniper_zoom_overlay.tga" />
-        <property name="Zoom_max_out" value="30" />
-        <property name="Zoom_max_in" value="20" />
-        <property name="ScopeCameraOffset" value="-.0003,0,-.01" />
-      </property>
-
-      <effect_group name="gunDeath">
-        <passive_effect name="HarvestCount" operation="base_set" value="1" tags="butcherHarvest"/>
-
-        <passive_effect name="MaxRange" operation="base_set" value="200" tags="perkGunslinger,9mmGun" />
-        <passive_effect name="DamageFalloffRange" operation="base_set" value="200" tags="perkGunslinger,9mmGun" />
-        <passive_effect name="DamageFalloffRange" operation="perc_add" value="-.2,.2" tags="perkGunslinger,9mmGun" /> <!-- random effective rng -->
-
-        <passive_effect name="RoundsPerMinute" operation="base_set" value="480" tags="perkGunslinger" />
-        <passive_effect name="BurstRoundCount" operation="base_set" value="1000" tags="perkGunslinger" />
-
-        <passive_effect name="MagazineSize" operation="base_set" value="30" tags="perkGunslinger" />
-        <passive_effect name="ReloadSpeedMultiplier" operation="base_set" value="1" tags="perkGunslinger" /> <!-- 4s -->
-        <passive_effect name="ModSlots" operation="base_set" value="4,4,4,4,4,4" tier="1,2,3,4,5,6" />
-        <passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage" />
-        <passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue" />
-        <passive_effect name="EntityDamage" operation="base_set" value="5000" />
-        <passive_effect name="BlockDamage" operation="base_set" value="10" />
-
-        <passive_effect name="DegradationMax" operation="perc_add" value="-.2,.2" tags="perkGunslinger" /> <!-- random DegMax -->
-        <passive_effect name="RoundsPerMinute" operation="perc_add" value="-.05,.05" tags="perkGunslinger" /> <!-- random APM -->
-        <passive_effect name="MagazineSize" operation="perc_add" value="-.122,.122" /> <!-- random MagazineSize -->
-        <passive_effect name="WeaponHandling" operation="perc_add" value="-.08,.08" tags="perkGunslinger" /> <!-- random WeaponHandling -->
-
-        <passive_effect name="SpreadDegreesVertical" operation="base_set" value="0.15" tags="perkGunslinger" />
-        <passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="0.15" tags="perkGunslinger" />
-        <passive_effect name="SpreadMultiplierAiming" operation="base_set" value=".35" tags="perkGunslinger" />
-        <passive_effect name="SpreadMultiplierCrouching" operation="base_set" value=".5" tags="perkGunslinger" />
-        <passive_effect name="SpreadMultiplierWalking" operation="base_set" value="1.1" tags="perkGunslinger" />
-        <passive_effect name="SpreadMultiplierRunning" operation="base_set" value="1.2" tags="perkGunslinger" />
-
-        <passive_effect name="KickDegreesVerticalMin" operation="base_set" value=".05" tags="perkGunslinger" />
-        <passive_effect name="KickDegreesVerticalMax" operation="base_set" value=".1" tags="perkGunslinger" />
-        <passive_effect name="KickDegreesHorizontalMin" operation="base_set" value="-.03" tags="perkGunslinger" />
-        <passive_effect name="KickDegreesHorizontalMax" operation="base_set" value=".03" tags="perkGunslinger" />
-
-        <passive_effect name="IncrementalSpreadMultiplier" operation="base_set" value="1.1" tags="perkGunslinger,9mmGun" />
-        <passive_effect name="WeaponHandling" operation="base_set" value="1.8" tags="perkGunslinger" />
-
-        <passive_effect name="DegradationMax" operation="base_set" value="350,700" tier="1,6" tags="perkGunslinger,9mmGun" />
-        <passive_effect name="DegradationPerUse" operation="base_set" value="0" tags="perkGunslinger,9mmGun" />
-      </effect_group>
-    </item>
-  </append>
 
   <!-- help gunDeath with reflex sight
     	<item_modifier name="modGunReflexSight" installable_tags="smallTopAttachments" modifier_tags="scope" blocked_tags="noMods,bow" type="attachment">
   -->
+<!--
   <append xpath="/item_modifiers/item_modifier[@name='modGunReflexSight']">
     <item_property_overrides name="gunDeath">
       <property name="ScopeOffset" value=".0001,.1,-.15" />
@@ -213,5 +114,6 @@ Man, would be cool...
       <property name="ScopeCameraOffset" value="-.00005,-.0214,.15" />
     </item_property_overrides>
   </append>
+-->
 
 </configs>

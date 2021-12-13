@@ -1,4 +1,7 @@
 <configs>
+  <!-- Storage containers - ALL are 10,9 -->
+  <set xpath="/lootcontainers/lootcontainer/@size">10,9</set>
+
     <!-- Make player dropped bags bigger to accomodate new size-->
 	<set xpath="/lootcontainers/lootcontainer[@id='2']/@size">10,9</set>
 	
