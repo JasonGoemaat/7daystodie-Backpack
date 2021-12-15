@@ -9,10 +9,15 @@
   -->
     <!-- update the overall backpack size -->
     <set xpath="/windows/window[@name='windowBackpack']/@width">726</set> <!-- original 606x349, 606 is 8.4 72px, 9.04 67px - 9  -->
-    <set xpath="/windows/window[@name='windowBackpack']/@height">349</set>
+    <set xpath="/windows/window[@name='windowBackpack']/@height">359</set>
+
+    <!-- update other window sizes, trying to make backpack not overlap forge -->
+    <set xpath="/windows/window[@name='emptyInfoPanel']/@width">726</set> <!-- original 606x392, 606 is 8.4 72px, 9.04 67px - 9  -->
+    <set xpath="/windows/window[@name='emptyInfoPanel']/@height">382</set> <!-- original 606x392, 606 is 8.4 72px, 9.04 67px - 9  -->
+
     
     <!-- increase the panel size -->
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/@height">303</set> <!-- original 303 is 60 per row + 3  -->
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/@height">313</set> <!-- original 303 is 60 per row + 3  -->
     
     <!-- adjust the rows, heights, and their cell equivalent -->
     <!-- original 5 rows, 9 columns
