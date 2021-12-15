@@ -1,6 +1,6 @@
 <configs>
 	<!-- Make the icon select area a bit smaller so there's no overlap -->
     <!-- original values: 72 and 72, so this is 5/8 the size-->
-    <set xpath="/styles/style[@name='itemStack']/style_entry[@name='width']/@value">45</set>
-    <set xpath="/styles/style[@name='itemStack']/style_entry[@name='height']/@value">45</set>
+    <!-- <set xpath="/styles/style[@name='itemStack']/style_entry[@name='width']/@value">45</set>
+    <set xpath="/styles/style[@name='itemStack']/style_entry[@name='height']/@value">45</set> -->
 </configs>

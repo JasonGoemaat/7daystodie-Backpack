@@ -3,135 +3,33 @@
       Make target bar visible outside godmode
     -->
     <set xpath="/window/windows[@name='windowTargetBar']/@visibility">always</set>
-    
-    <!--
-      Toolbelt
-    -->
-    <set xpath="/windows/window[@name='windowToolbelt']/@height">51</set> <!-- original 78 for 72 item, ours is 45, so 51 -->
-    <set xpath="/windows/window[@name='windowToolbelt']/@width">483</set> <!-- original 753 for 72 item, ours is 45 so 483 for 10 items -->
-    <set xpath="/windows/window[@name='windowToolbelt']/@pos">-388, 60</set> <!-- original -388, 92, giving 20px below (72 + 20 = 92), so we give 5 giving 50 -->
-    <set xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='Toolbelt']/grid/@cell_width">48</set> <!-- original 75 for 72 item, ours is 45 so 48 -->
-    <set xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='Toolbelt']/grid/@cell_height">48</set> <!-- original 75 for 72 item, ours is 45 so 48 -->
-    <set xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='HUDStatBar'][@pos='0,-77']/@pos">0,-50</set> <!-- original -77 when window is 78 height -->
-    <set xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='HUDStatBar'][@pos='376,-77']/@pos">376,-50</set> <!-- original -77 when window is 78 height  -->
-    <!-- this doesn't work...  anything placed in the 11th slot disappears
-         anything in the 12th to 20th slots works, but disappears if you exit and come back to the game
-         
-         <set xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='Toolbelt']/grid/@cols">20</set>
-    -->
 
-    <remove xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='Toolbelt']/grid/item_stack"></remove>
-	
-    <append xpath="/windows/window[@name='windowToolbelt']/rect/rect[@controller='Toolbelt']/grid">
-         <kh60_backpack_item_stack name="0"/>
-    </append>
-  
-  <!--
+    <!--
     Backpack
   -->
     <!-- update the overall backpack size -->
-    <set xpath="/windows/window[@name='windowBackpack']/@width">804</set> <!-- original 606x349, 606 is 8.4 72px, 9.04 67px - 9  -->
-    <set xpath="/windows/window[@name='windowBackpack']/@height">418</set>
+    <set xpath="/windows/window[@name='windowBackpack']/@width">726</set> <!-- original 606x349, 606 is 8.4 72px, 9.04 67px - 9  -->
+    <set xpath="/windows/window[@name='windowBackpack']/@height">349</set>
     
     <!-- increase the panel size -->
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/@height">416</set> <!-- original 303 is 60 per row + 3  -->
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/@height">303</set> <!-- original 303 is 60 per row + 3  -->
     
     <!-- adjust the rows, heights, and their cell equivalent -->
     <!-- original 5 rows, 9 columns
          window size 606 is 9 * 67 + 3 by 349 is 335 + 14
     -->
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@rows">8</set>
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@cols">15</set>
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@cell_height">53</set> <!-- original 67x67, style is 72x72 -->
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@cell_width">53</set>
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/sprite[@name='backgroundMain']/@width">801</set> <!-- 606 x 349 original -->
-    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/sprite[@name='backgroundMain']/@height">416</set>
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@rows">6</set>
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@cols">12</set>
+    
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@cell_height">67</set> <!-- original 67x67, style is 72x72 -->
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@cell_width">67</set>
+    
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/sprite[@name='backgroundMain']/@width">726</set> <!-- 606 x 336 original -->
+    <set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/sprite[@name='backgroundMain']/@height">336</set>
 	
 	<!-- adjust windowlooting to match the size of the new player dropped backpack container -->
-    <set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@rows">10</set>
-    <set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@cols">9</set>
+  
+  <!-- <set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@rows">10</set>
+    <set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@cols">9</set> -->
 
-	<remove xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/backpack_item_stack"></remove>
-	
-	<append xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']">
-       <kh60_backpack_item_stack name="0"/>
-	</append>
-	
-	<append xpath="/windows">
-		<window name="KHHUDLeftStatBars">
-			<rect name="hud" pos="9,187" rows="3" cols="1" width="168" side="right">
-				<rect width="171" height="43" controller="HUDStatBar" stat_type="Stealth" visible="{statvisible}">
-					<sprite depth="1" name="border" color="0,0,0,150" height="43" type="sliced" />
-					<sprite depth="2" name="background" color="0,0,0,140" type="sliced" />
-
-					<filledsprite depth="3" name="background" color="110,110,110,128" type="filled" fill="1" />
-
-					<filledsprite depth="4" name="BarContent" color="{stealthcolor}" type="filled" fill="0" />
-					<sprite depth="5" name="Icon" atlas="{staticonatlas|once}" sprite="{staticon|once}" size="32,32" pos="8,-6" foregroundlayer="true"/>
-					<label depth="6" name="TextContent" pos="0,-8" font_size="28" color="[white]" justify="center" pivot="topleft" text="{statcurrent}" height="30"/>
-
-					<sprite depth="8" name="border" color="0,0,0,255" height="43" type="sliced" fillcenter="false"/>
-					<filledsprite depth="8" name="background" color="0,0,0,255" width="171" fillcenter="false" type="filled" fill="1" />
-					<filledsprite depth="3" name="background" color="0,0,0,255" width="170" fillcenter="false" type="filled" fill="1" />
-				</rect>
-
-				<rect width="171" height="43" pos="0,-47" controller="HUDStatBar" stat_type="Stamina" visible="{statvisible}">
-					<sprite depth="1" name="border" color="0,0,0,128" type="sliced"/>
-					<sprite depth="2" name="background" color="0,0,0,140" type="sliced" />
-
-					<filledsprite depth="3" name="background" color="110,110,110,128" width="169" type="filled" fill="{statmodifiedmax}" />
-
-					<filledsprite depth="5" name="BarContent" color="0,54,255,128" width="169" type="filled" fill="0"  />
-					<sprite depth="6" name="Icon" atlas="{staticonatlas|once}" sprite="ui_game_symbol_agility" size="32,32" pos="8,-6" foregroundlayer="true"/>
-					<label depth="7" name="TextContent" pos="0,-8" font_size="28" color="[white]" justify="center" pivot="topleft" text="{statcurrentwithmax}" height="30"/>
-
-					<sprite depth="8" name="border" color="0,0,0,255" type="sliced" fillcenter="false"/>
-					<filledsprite depth="8" name="background" color="0,0,0,255" width="171" fillcenter="false" type="filled" fill="{statmodifiedmax}" />
-					<filledsprite depth="3" name="background" color="0,0,0,255" width="170" fillcenter="false" type="filled" fill="{statmodifiedmax}" />
-				</rect>
-
-				<rect width="171" height="43" pos="0,-94" controller="HUDStatBar" stat_type="Health" visible="{statvisible}">
-					<sprite depth="1" name="border" color="0,0,0,128" type="sliced"/>
-
-					<sprite depth="2" name="background" color="0,0,0,140" type="sliced" />
-					<filledsprite depth="3" name="background" color="110,110,110,128" width="169" type="filled" fill="{statmodifiedmax}" />
-
-					<filledsprite depth="5" name="BarContent" color="255,0,0,128" width="169" type="filled" fill="0" />
-					<sprite depth="6" name="Icon" atlas="{staticonatlas|once}" sprite="{staticon|once}" size="32,32" pos="8,-6" foregroundlayer="true"/>
-					<label depth="7" name="TextContent" pos="0,-8" font_size="28" color="[white]" justify="center" pivot="topleft" text="{statcurrentwithmax}" height="30"/>
-
-					<sprite depth="8" name="border" color="0,0,0,255" type="sliced" fillcenter="false"/>
-					<filledsprite depth="8" name="background" color="0,0,0,255" width="171" fillcenter="false" type="filled" fill="{statmodifiedmax}" />
-					<filledsprite depth="3" name="background" color="0,0,0,255" width="170" fillcenter="false" type="filled" fill="{statmodifiedmax}" />
-				</rect>
-
-				<grid name="hud" pos="-2,-139" rows="1" cols="2" width="171" cell_width="94" cell_height="46" repeat_content="false" side="left" >
-					<rect width="93" height="85" controller="PlayerStatsWindow" stat_type="Food" visible="{statvisible}">
-						<sprite depth="1" name="border" color="0,0,0,100" height="43" type="sliced"/>
-						<sprite depth="2" pos="3,-3"  name="background" height="37" width="90" color="64,64,64,100" type="sliced" />
-						<sprite depth="3" pos="3,-3"  color="0,128,0,150" type="filled" height="37" width="87" fill="{playerfoodfill}" controller="PlayerStatsWindow" />
-						<sprite depth="4" name="Icon" sprite="ui_game_symbol_hunger" size="32,32" pos="4,-6" foregroundlayer="true"/>
-						<label depth="6" name="TextContent" pos="15,-8" font_size="28" color="[white]" justify="center" pivot="topleft" text="{playerfood}%" height="30"/>
-					</rect>
-	
-					<rect width="93" height="85" controller="PlayerStatsWindow" stat_type="Water" visible="{statvisible}">
-						<sprite depth="1" name="border" color="0,0,0,100" height="43" type="sliced" />
-						<sprite depth="2" pos="3,-3"  name="background" height="37" width="90" color="64,64,64,100" type="sliced" />
-						<sprite depth="3" pos="3,-3"  color="64,164,223,150" type="filled" height="37" width="87" fill="{playerwaterfill}" controller="PlayerStatsWindow" />
-						<sprite depth="4" name="Icon" sprite="ui_game_symbol_water" size="32,32" pos="4,-6" foregroundlayer="true"/>
-						<label depth="6" name="TextContent" pos="15,-8" font_size="28" color="[white]" justify="center" pivot="topleft" text="{playerwater}%" height="30"/>
-					</rect>
-				</grid>
-			</rect>
-
-			<rect name="hud" pos="90,165" side="left" controller="BuffPopoutList" pivot="BottomLeft" >
-				<panel width="168" height="43" name="item" visible="false" pivot="right" disableautobackground="true" pos="70, 0" >
-					<sprite depth="3" pos="0,0"  name="Background" sprite="ui_game_popup" height="43" width="162" pivot="center" flip="Horizontally" color="[transparent]" />
-					<sprite depth="4" name="Icon" size="36,32" pos="-58,0" pivot="center" color="[transparent]"/>
-					<label depth="6" name="TextContent" pos="0,0" font_size="28" color="[white]" justify="center" height="30" pivot="center"/>
-				</panel>
-			</rect>
-		</window>
-	</append>		
-	
 </configs>
